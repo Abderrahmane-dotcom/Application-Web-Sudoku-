@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width initial-scale=1.0 user-scalable=no">
+        <title>Sudoku</title>
+
+        <link rel="stylesheet" href="style.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/pdfmake.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.10/vfs_fonts.js"></script>        
+        <script src="sudoku.js"></script>
+    </head>
+
+    <body>
+        <h1>   Jeu Sudoku
+        </h1>
+        
+
+        <!-- 9x9 board -->
+        <div id="board"></div>
+        <br>
+        <div id="digits">
+        </div>
+
+				
+        <div class="button-container">
+		<button class="button easy">Facile</button>
+  		<button class="button medium">Moyen</button>
+  		<button class="button hard">Difficile</button>
+  		<button class="button expert">Diabolique</button>
+		<button class="button undo">Retour</button>
+		<button class="button hint">💡 Aide</button>
+		</div>
+
+
+    	
+    	<aside id="dynamicAside" class="aside-container">
+    	</aside>
+		
+		<button class="button submit-button" id="submitButton">Envoi réponse</button>
+		
+		<div id="myChrono">
+		  	<span id="hours">00</span>:
+  			<span id="minutes">00</span>:
+  			<span id="seconds">00</span></div>
+		<button class="start-button" id="startButton">Relancer</button>
+		<button class="stop-button" id="stopButton">Arrêter</button>
+		<button class="rappel-button" id="rappelButton">💡 Rappel</button>
+		<button class="dec-button" id="declButton">Déconnexion</button>
+		<button class="refresh-button" id="refreshButton">Rafraichir</button>
+		<button class="generate_pdf-button" id="topdfButton">Enregistrer PDF</button>
+		<button class="redemarrer" id="redemmarage">Redémarrer Partie</button>
+
+		
+		
+		
+    </body>
+
+
+</html>

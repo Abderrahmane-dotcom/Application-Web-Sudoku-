@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sign Up</title>
+  <link rel="stylesheet" type="text/css" href="Registerstyle.css">
+</head>
+<body>
+  <div class="container">
+    <div class="login-box">
+      <h2>Sign Up</h2>
+      <form action="register" method="post" id="RegisterForm">
+        <div class="form-group">
+          <label for="username">Nom d'utilisateur :</label>
+          <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse e-mail :</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="password">Mot de passe :</label>
+          <input type="password" id="password" name="password" required>
+          <label for="confirmation_password">Confirmer mot de passe :</label>
+          <input type="password" id="confirmation_password" name="confirmation_password" required>
+        </div>
+        <input type="submit" value="S'inscrire" class="submit-button">
+      </form>
+    </div>
+  </div>
+<script>
+  // Récupérer le formulaire de connexion
+  var variable_de_test ;
+  variable_de_test = 0;
+  var registerForm = document.getElementById('RegisterForm');
+
+  // Ajouter un écouteur d'événement pour la soumission du formulaire
+  registerForm.addEventListener('submit', function(event) {
+    // Prévenir la soumission du formulaire jusqu'à la validation
+    event.preventDefault();
+
+    // Vider le localStorage
+    localStorage.clear();
+
+    // Récupérer la valeur de l'e-mail
+    var userEmail = document.getElementById('email').value;
+    var userName = document.getElementById('username').value;
+  	var data_tow = [userEmail,userName];
+
+    // Vérifier si le mot de passe correspond à la confirmation du mot de passe
+    var password = document.getElementById('password').value;
+    var confirmationPassword = document.getElementById('confirmation_password').value;
+
+    if (password !== confirmationPassword) {
+      alert("Le mot de passe et la confirmation du mot de passe ne correspondent pas.");
+      return; // Empêcher la soumission du formulaire
+    }
+
+    // Création de la WebSocket
+    var socket = new WebSocket('ws://localhost:8083/zPFA_Sudoku/check-email-username');
+
+    // Ajouter un écouteur d'événement pour l'ouverture de la connexion WebSocket
+    socket.addEventListener('open', function() {
+      // Envoyer l'email via WebSocket
+	  	socket.send(JSON.stringify(data_tow));    
+    });
+
+    
+
+    socket.addEventListener('message', function (event) {
+    	
+    	var listeJSON = event.data; // Récupérer la chaîne JSON du message
+
+    	  var liste = JSON.parse(listeJSON); // Convertir la chaîne JSON en liste JavaScript
+
+    	  // Traiter la liste
+    	  liste.forEach(function(objet) {
+    	    console.log(objet.id, objet.nom);
+    	  });
+    	  if(liste[0]==="not_exists" & liste[1]==="not_exists"){
+    		  	localStorage.setItem('email', userEmail);
+			    console.log("Script JavaScript exécuté !");
+
+			    socket.close();
+			    socket= null;    	
+	      		
+			    registerForm.submit();
+    	  }
+    	  else if (liste[0]==="exists"){
+    	        alert('Cet email existe dans notre base de données. Veuillez utiliser un autre email 😊.');
+			    socket.close();
+			    socket= null; 
+    	  }
+    	  else if (liste[1]==="exists"){
+		        alert('Ce nom d\'utilisateur existe déjà. Veuillez utiliser un autre nom 😊.');
+			    socket.close();
+			    socket= null; 
+  	  }
+ 	
+    })
+    
+    
+    
+    
+    socket.addEventListener('error', function(error) {
+      console.error('WebSocket error: ', error);
+    });
+  		   
+  });
+</script>
+
+</body>
+</html>

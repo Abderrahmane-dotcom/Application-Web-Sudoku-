@@ -1,0 +1,115 @@
+body {
+  background-color: #f2f2f2;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('wp8101509.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-box {
+  width: 400px;
+  background-color: #fff;
+  border-radius: 8px;
+  padding: 40px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card {
+  background-color: beige;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 15px;
+  margin-top: 20px;
+  text-align: center; /* Centrer le contenu */
+}
+
+.card-button {
+  display: flex;
+  justify-content: center;
+}
+
+.card-button button {
+  background-color: #f2f2f2;
+  color: #333;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 5px;
+}
+.submit-button {
+  display: block;
+  margin: 0 auto;
+  width: 150px; /* Ajustez la largeur selon vos besoins */
+  padding: 10px;
+  font-size: 16px;
+  background-color: #f2f2f2;
+  color: #333;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #e0e0e0;
+}
+
+.submit-button:active {
+  background-color: #d2d2d2;
+}
+
+.submit-button:focus {
+  outline: none;
+}
+
+.card-button button:hover {
+  background-color: #e0e0e0;
+}
+
+.card-button button:active {
+  background-color: #d2d2d2;
+}
+
+.card-button button:focus {
+  outline: none;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+input[type="email"] {
+  background-color: #f9f9f9;
+}

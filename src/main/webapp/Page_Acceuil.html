@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu Sudoku</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#home">Acceuil</a></li>
+                <li><a href="#about">Histoire</a></li>
+                <li><a href="#services">Statistiques</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="content">
+            <div class="text">
+                <section id="home">
+                    <h1>Bienvenue au Sudoku</h1>
+                    <p>Le sudoku 数独 , est un jeu en forme de grille défini en 1979 par l’Américain Howard Garns, mais inspiré du carré latin, ainsi que du problème des 36 officiers du mathématicien suisse Leonhard Euler.<br>
+                    Une grille de sudoku se compose de 9x9 cases et le jeu suit les règles suivantes:<br>
+- Vous pouvez uniquement utiliser les chiffres de 1 à 9.<br>
+- Chaque bloc de 3×3 cases peut uniquement contenir les chiffres de 1 à 9.<br>
+- Chaque colonne verticale peut uniquement contenir les chiffres de 1 à 9.<br>
+- Chaque ligne horizontale peut uniquement contenir les chiffres de 1 à 9.<br>
+- Chaque bloc de 3x3 cases, chaque colonne verticale et chaque ligne horizontale ne peuvent contenir chaque  chiffre qu'une seule fois.<br>
+- La partie est terminée lorsque toute la grille de sudoku est correctement remplie.
+                    </p>
+                     <button class="redirect-button" onclick="location.href='http://localhost:8083/zPFA_Sudoku/login.html'">Commencer à jouer</button>
+                </section>
+                <section id="about">
+                    <h2>Histoire</h2>
+                    <p>Inspiré par <a target="_blank" href="https://fr.wikipedia.org/wiki/Carr%C3%A9_magique_(math%C3%A9matiques)">le carré magique</a>, ce jeu est tout d'abord connu des mathématiciens chinois, à partir de -650, sous le nom <em>Luoshu</em> (洛书, <em>Luò&nbsp;shū</em>, «&nbsp;Livre de la rivière Luo&nbsp;»). D'ordre 3, il pouvait alors être représenté par différents symboles.</p>
+                    <p>Ce sont visiblement les Indiens, inventeurs des signes dits chiffres arabes, qui les limitèrent à des chiffres, puis les Arabes, probablement vers le VII<sup>e</sup> siècle, lorsque leurs armées firent la conquête du nord-ouest de&nbsp;l'Inde.</p>
+					<p>Les premiers carrés magiques d'ordres 5 et 6 apparurent dans une encyclopédie publiée à Baghdad vers 983, l’<em>Encyclopédie de la Fraternité de la pureté</em> (<em>Rasa'il Ikhwan&nbsp;al-Safa</em>).</p>
+                  
+					<p>Le mathématicien suisse Leonhard&nbsp;Euler (1707-1783) crée ou au moins cite le<a target="_blank" href="https://fr.wikipedia.org/wiki/Carr%C3%A9_latin">«&nbsp;carré latin&nbsp;»</a>, tableau carré de <em>n</em> lignes et <em>n</em> colonnes remplies de <em>n</em> éléments distincts dont chaque ligne et chaque colonne ne contient qu'un&nbsp;seul&nbsp;exemplaire.</p>
+					<p>Dans l'hebdomadaire pour la jeunesse <em>Le Petit Français illustré</em> (numéro 7 du 13&nbsp;avril 1889, p. 92), sous le titre général «&nbsp;Problèmes amusants&nbsp;» est proposé le jeu suivant&nbsp;: «&nbsp;Disposer les 9 chiffres, 1, 2, 3, 4, 5, 6, 7, 8, 9, dans les 9 cases de la figure ci-dessous, de telle façon que le total des 3 chiffres de chaque ligne verticale, horizontale et diagonale soit égal&nbsp;à&nbsp;15.&nbsp;»</p>
+                  	<p>En 1892, en France, dans le quotidien monarchiste <em>Le&nbsp;Siècle</em>, apparaît la plus ancienne grille connue de sudoku. Le 6&nbsp;juillet 1895, toujours en France, le quotidien <em>La&nbsp;France</em> publie une autre grille de ce jeu sur une grille de 9×9 cases, appelé «&nbsp;Carré magique diabolique&nbsp;», et réalisé par&nbsp;M.&nbsp;B.&nbsp;Meyniel.</p>
+                  	<p>La version moderne du sudoku est inventée anonymement par l'Américain Howard&nbsp;Garns et publié pour la première fois en 1979 dans Dell Magazines sous le nom Number&nbsp;Place.</p>
+					<p>En avril 1984, Maki&nbsp;Kaji (鍜治 真起, né en 1951), directeur de la société Nikoli, publie pour la première fois, dans sa revue mensuelle «&nbsp;<em>Getsukan Nikoli suto</em>&nbsp;» (月刊ニコリスト), le jeu <em>Number Place</em> sous le nom «&nbsp;<em>Sūji wa dokushin ni kagiru</em>&nbsp;» (数字は独身に限る), plus tard «&nbsp;<em>Sūdoku</em>&nbsp;»&nbsp;(数独).</p>
+                    
+                </section>
+				<section id="services">
+				    <h2>Statistiques</h2>
+				    <p>Liste des 10 meilleurs joueurs :</p>
+				    <ul id="topPlayersList"></ul>
+				</section>
+
+
+            </div>
+<div class="image">
+  <img src="sudoku_image.jpg" alt="Description de l'autre image" class="size-large">
+  <p>Exemple de grille Sudoku</p>
+  <p><br></p>
+  <p><br></p>
+
+  <img src="Grille_le_Siècle.png" alt="Description de l'image 3" class="custom-size size-medium">
+  <p>Publiée le 19 novembre 1892 dans le quotidien Le Siècle.</p>
+  <p><br></p>
+  <img src="Howard_Ganrns.jpeg" alt="Description de l'image" class="size-small">
+  <p>Howard Garns (1905 – 1989)</p>
+</div>
+
+        </div>
+    </main>
+<script>
+function initTopPlayersWebSocket() {
+    let topPlayersSocket = new WebSocket("ws://localhost:8083/zPFA_Sudoku/top_players");
+
+    // Lorsque la connexion est ouverte
+    topPlayersSocket.onopen = function(_event) {
+        console.log("Connexion établie avec le serveur WebSocket pour récupérer les meilleurs joueurs");
+    };
+
+    // Lorsque des données sont reçues de la WebSocket
+    topPlayersSocket.onmessage = function(event) {
+        let topPlayers = JSON.parse(event.data);
+        console.log("Les 10 meilleurs joueurs :", topPlayers);
+        // Mettez à jour votre interface utilisateur pour afficher les meilleurs joueurs
+        displayTopPlayers(topPlayers);
+        // Fermer la connexion WebSocket après avoir reçu les données
+        topPlayersSocket.close();
+        topPlayersSocket = null;
+    };
+
+    // En cas d'erreur
+    topPlayersSocket.onerror = function(event) {
+        console.error("Erreur de connexion WebSocket pour récupérer les meilleurs joueurs :", event);
+    };
+}
+
+// Fonction pour afficher les meilleurs joueurs dans l'interface utilisateur
+// Fonction pour afficher les meilleurs joueurs dans l'interface utilisateur
+function displayTopPlayers(topPlayers) {
+    let topPlayersList = document.getElementById("topPlayersList");
+    topPlayersList.innerHTML = ""; // Réinitialiser la liste
+
+    // Créer le tableau et l'en-tête
+    let table = document.createElement("table");
+    let thead = document.createElement("thead");
+    let headerRow = document.createElement("tr");
+    let headers = ["Nom", "Score"];
+    headers.forEach(headerText => {
+        let header = document.createElement("th");
+        header.textContent = headerText;
+        header.setAttribute("class", "table-header");
+        
+        // Ajouter une classe spécifique à la première colonne
+        if (headerText === "Nom") {
+            header.classList.add("first-column");
+        }
+        
+        headerRow.appendChild(header);
+    });
+    thead.appendChild(headerRow);
+    table.appendChild(thead);
+
+    // Créer le corps du tableau avec les données des joueurs
+    let tbody = document.createElement("tbody");
+    topPlayers.forEach(player => {
+        let row = document.createElement("tr");
+        let nameCell = document.createElement("td");
+        let scoreCell = document.createElement("td");
+        nameCell.textContent = player.User_Name;
+        scoreCell.textContent = player.Score + " 💎";
+        row.appendChild(nameCell);
+        row.appendChild(scoreCell);
+        tbody.appendChild(row);
+    });
+    table.appendChild(tbody);
+
+    // Ajouter le tableau à la liste des meilleurs joueurs
+    topPlayersList.appendChild(table);
+}
+
+// Appeler la fonction pour récupérer et afficher les meilleurs joueurs lorsque la page est chargée
+window.onload = function() {
+    initTopPlayersWebSocket();
+};
+
+</script>
+</body>
+</html>

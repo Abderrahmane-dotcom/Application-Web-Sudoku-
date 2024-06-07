@@ -1,0 +1,470 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+hr {
+    width: 500px;  /*changée de 500*/
+}
+
+#errors {
+    color: coral;
+}
+
+
+#board {
+    width: 460px;
+    height: 450px;
+   /* margin: 125; modifié de 70 auto
+    et ci après la nouvelle modification
+   
+    margin-top: 90px;     /* Marge supérieure 
+  	margin-bottom: 10px;  /* Marge inférieure 
+  	margin-left: 100px;    /* Marge gauche 
+  	margin-right: 20px;   /* Marge droite 
+  	*/
+  	margin: 90px auto 10px 140px;
+   
+    display: flex; 
+    flex-wrap: wrap;}
+
+/*
+#board {
+  width: 460px;
+  height: 450px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+*/
+
+.tile {
+    width: 48px; 
+    height: 48px;
+    border: 1px solid lightgray;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    
+}
+/*
+#digits {
+    width: 450px;
+    height: 50px;
+
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+*/
+
+#digits {
+  width: 450px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.number {
+    width: 44px; 
+    height: 44px;
+    border: 1px solid black;
+    margin: 2px;
+
+    /* Text */
+    font-size: 20px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.number-selected {
+    background-color: gray;
+}
+
+.tile-start {
+    background-color: lightgreen;
+}
+.invalid-input {
+    background-color: red;
+}
+
+.tile-empty {
+    background-color: #ffffcc;
+}
+.horizontal-line {
+    border-bottom: 5px solid black;
+}
+
+.vertical-line {
+    border-right: 5px solid black;
+}
+.tile-empty-textbox {
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    width: 33px;
+    height: 30px;
+    padding: 0;
+    margin: 0;
+}
+
+.center-text {
+  text-align: center;
+}
+.button-container {
+  display: contents;
+ /*
+  flex-direction: column;
+  justify-content: center;*/
+  height: 0vh;
+  margin-right: 20px;
+}
+
+.container {
+  display: contents;
+ /*
+  flex-direction: column;
+  justify-content: center;*/
+  height: 0vh;
+  margin-right: 20px;
+}
+.button {
+  width: 200px;
+  height: 50px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: font-size 0.3s, width 0.3s, height 0.3s;
+}
+
+.button:hover {
+  font-size: 20px;
+  width: 220px;
+  height: 60px;
+  background-color: #8B4513;
+}
+.logout-button {
+        /* Styles spécifiques au bouton de déconnexion */
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+.easy {
+  background-color: #4CAF50;
+}
+
+.medium {
+  background-color: #6FBF73;
+}
+
+.hard {
+  background-color: #129b0b;
+}
+
+.expert {
+  background-color: #008040;
+}
+.undo {
+	 background-color: #ff8000;
+}
+.hint{
+	 background-color: #ff8000;
+}
+
+/*partie du message lorseque la page prend du temps pour s'afficher  */
+/*
+#message {
+  background-color: #e7a365;  /*orange
+  padding: 10px;
+  border: 1px solid #ddd;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+#message p {
+  font-weight: bold;
+  color: saddlebrown;
+}
+
+
+#closeButton {
+  margin-top: 10px;
+}
+*/
+
+.submit-button {
+    position: absolute;
+    top: 520px; /* Ajustez la position verticale selon vos besoins */
+    left: 50%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #008040; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.submit-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 220px; /* Largeur sur hover */
+    height: 60px; /* Hauteur sur hover */
+    background-color: #c06112; /* Couleur de fond sur hover */
+}
+
+/**/
+
+
+
+
+
+.start-button {
+    position: absolute;
+    top: 220px; /* Ajustez la position verticale selon vos besoins */
+    left: 50%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #008040; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.start-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 220px; /* Largeur sur hover */
+    height: 60px; /* Hauteur sur hover */
+    background-color: #009349; /* Couleur de fond sur hover */
+}
+
+.stop-button {
+    position: absolute;
+    top: 300px; /* Ajustez la position verticale selon vos besoins */
+    left: 50%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #008040; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.stop-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 220px; /* Largeur sur hover */
+    height: 60px; /* Hauteur sur hover */
+    background-color: #009349; /* Couleur de fond sur hover */
+}
+
+.rappel-button {
+    position: absolute;
+    top: 380px; /* Ajustez la position verticale selon vos besoins */
+    left: 50%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+    width: 200px;
+    height: 50px;
+    font-size: 16px;
+    background-color: #008040; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.rappel-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 220px; /* Largeur sur hover */
+    height: 60px; /* Hauteur sur hover */
+    background-color: #009349; /* Couleur de fond sur hover */
+}
+
+.dec-button {
+    position: absolute;
+    top: 58px; /* Ajustez la position verticale selon vos besoins */
+    left: 90%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+    width: 150px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #008040; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.dec-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 220px; /* Largeur sur hover */
+    height: 60px; /* Hauteur sur hover */
+    background-color: #009349; /* Couleur de fond sur hover */
+}
+
+.refresh-button {
+    position: absolute;
+    top: 582px; /* Ajustez la position verticale selon vos besoins */
+    left: 90.3%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    background-color: #c96307; /* Couleur de fond du bouton */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.refresh-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 120px; /* Largeur sur hover */
+    height: 45px; /* Hauteur sur hover */
+    background-color: #c96307; /* Couleur de fond sur hover */
+}
+
+.generate_pdf-button {
+    position: absolute;
+    top: 453px; /* Ajustez la position verticale selon vos besoins */
+    left: 50%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+	 width: 200px; /* Largeur sur hover */
+    height: 45px; /* Hauteur sur hover */
+    font-size: 16px;
+    background-color: #009349; /* Couleur de fond sur hover */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.generate_pdf-button:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 240px; /* Largeur sur hover */
+    height: 60px; /* Hauteur sur hover */
+    background-color: #498749; /* Couleur de fond sur hover */
+}
+
+.redemarrer {
+    position: absolute;
+    top: 66px; /* Ajustez la position verticale selon vos besoins */
+    left: 16%; /* Place le bouton à mi-chemin horizontalement */
+    transform: translateX(-50%); /* Centre horizontalement le bouton */
+    z-index: 1; /* Assure que le bouton est au-dessus des autres éléments */
+
+    /* Style personnalisé pour le bouton Submit */
+	 width: 180px; /* Largeur sur hover */
+    height: 45px; /* Hauteur sur hover */
+    font-size: 16px;
+    background-color: #009349; /* Couleur de fond sur hover */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 4px; /* Coins arrondis */
+    cursor: pointer; /* Curseur pointeur */
+    transition: font-size 0.3s, width 0.3s, height 0.3s; /* Transition sur hover */
+}
+
+.redemarrer:hover {
+    font-size: 20px; /* Taille de police sur hover */
+    width: 220px; /* Largeur sur hover */
+    height: 40px; /* Hauteur sur hover */
+    background-color: #498749; /* Couleur de fond sur hover */
+}
+
+
+
+#myChrono {
+  position: absolute;
+  top: 150px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-family: Arial, sans-serif;
+  background-color:  #ffffcc;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#myChrono span {
+  display: inline-block;
+  padding: 0 10px;
+  background-color:  #ffffcc;
+  color: black;
+  border-radius: 4px;
+}
+
+
+.container {
+    float: left;
+}
+
+.aside-container {
+    background-color: #ffffcc;
+    padding: 1px;
+    width: 490px; /* Ajustez la largeur selon vos besoins */
+    position: absolute;
+    top: 130;
+    right: 0;
+    margin-right: 80px;
+    margin-top: 1px;
+    text-align: left;
+    white-space: pre-wrap; /* Pour conserver les sauts de ligne */
+    font-size: 26px;
+    font-family: "Matura MT Script Capitals", cursive;
+}
+
+
+body {
+  background-image: url('wp8101509.jpg');
+  background-size: cover;
+}
+
+
